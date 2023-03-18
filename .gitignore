@@ -1,2 +1,5 @@
 /out.txt
 /venv
+*.txt
+*.tmp 
+/modules/__pycache__
