@@ -1,7 +1,13 @@
 import bs4
 import requests
 import numpy
+import pandas
 from collections import defaultdict
+import mechanize 
+import http.cookiejar
+
+username = str() 
+password = str()
 
 def getSolvedByUser(username):
     url = "http://ntucoder.net/Submission/CoderProblemSolved/" + username
@@ -20,4 +26,17 @@ def getSolvedByUser(username):
         if p not in counted: 
             counted[p] = True 
             ans.append(p)
-    return ans
+    return sorted(ans)
+
+loginURL = "http://ntucoder.net/Account/LogIn"
+
+def loadCredentialsFromCSV(filepath): 
+    df = pandas.read_csv(filepath)
+    global username
+    global password 
+    for i in range(len(df)):
+        if df.loc[i, 'Judge'] == 'ntucoder':
+            username = df.loc[i, 'Handle'] 
+            password = df.loc[i, 'Password'] 
+            return 0 
+    return -1 

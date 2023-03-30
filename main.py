@@ -1,4 +1,7 @@
-from modules import ntucoder_scraper
+from modules import ntucoder, lqdoj
+import os 
 
-test = ntucoder_scraper.getSolvedByUser("snowynguyen") 
-print(test)
+cwd = os.getcwd()
+credentials_path = cwd + "/credentials.csv"
+lqdoj.loadCredentialsFromCSV(credentials_path) 
+lqdoj.login()

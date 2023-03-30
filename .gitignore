@@ -2,4 +2,5 @@
 /venv
 *.txt
 *.tmp 
-/modules/__pycache__
+**__pycache__**
+/credentials.csv
