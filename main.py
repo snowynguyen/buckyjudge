@@ -1,7 +1,7 @@
-from modules import ntucoder, lqdoj
+from modules import ntucoder, vnoj
 import os 
 
 cwd = os.getcwd()
 credentials_path = cwd + "/credentials.csv"
-lqdoj.loadCredentialsFromCSV(credentials_path) 
-lqdoj.login()
+vnoj.loadCredentialsFromCSV(credentials_path) 
+vnoj.login()
