@@ -1,7 +1,7 @@
-from modules import ntucoder, vnoj
+from modules import hnoj
 import os 
 
 cwd = os.getcwd()
 credentials_path = cwd + "/credentials.csv"
-vnoj.loadCredentialsFromCSV(credentials_path) 
-vnoj.login()
+hnoj.loadCredentialsFromCSV(credentials_path) 
+hnoj.login()

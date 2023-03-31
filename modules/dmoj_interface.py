@@ -18,6 +18,7 @@ class DMOJ:
         self.name = name 
         self.rootURL = rootURL 
         self.loginURL = loginURL
+        self.br.set_handle_robots(False)
         pass
 
     def loadCredentialsFromCSV(self, filepath): 
@@ -32,7 +33,7 @@ class DMOJ:
     def login(self): 
         global loggedIn
         self.br.open(self.loginURL)
-        if (res.url == self.rootURL):
+        if (self.br.geturl() == self.rootURL):
             print ('Already logged in (probably).')
             loggedIn = True 
             return 0
@@ -41,7 +42,7 @@ class DMOJ:
         self.br.form['username'] = self.username 
         self.br.form['password'] = self.password
         res = self.br.submit()
-        if res.url == self.rootURL:
+        if res.geturl() == self.rootURL:
             loggedIn = True
             print ('Logged in successfully.') 
             return 0
